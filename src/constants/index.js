@@ -52,7 +52,7 @@ export const EDUCATION = [
   },
   {
     year: "November 2022 - April 2023",
-    role: "React Front End Developement",
+    role: "Front End Developement",
     company: "Coderhouse.",
   },
 ]
