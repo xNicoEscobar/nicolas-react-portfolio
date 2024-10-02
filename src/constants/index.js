@@ -2,7 +2,7 @@ export const HERO_CONTENT = `I am a passionate front-end developer with a knack 
 
 export const ABOUT_TEXT = [
   {
-    paragraph: ["I am a dedicated and versatile front-end developer with a passion for creating efficient, modern, and user-friendly web applications. With 1 year of professional experience, I have worked with a variety of technologies, including JavaScript, CSS, Bootstrap, Tailwind, React, Next.js, and Node.js. While I have some experience with backend development, it’s not my primary focus. My journey in web development began with a deep curiosity about how things work, and I am always eager to learn the latest IT skills.", "I’ve had the opportunity to work in collaborative environments, and I truly enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I like to stay active, explore new technologies, take courses, and continuously learn important skills all while maintaining a healthy balance in life. My next goal is to perfect what I've learned so far and I want to dive into AI world."]
+    paragraph: ["I am a dedicated and versatile front-end developer with a passion for creating efficient, modern, and user-friendly web applications. With 1 year of professional experience, I have worked with bunch of technologies, including JavaScript, CSS, Bootstrap, Tailwind, React, Next.js, and Node.js. While I have some experience in backend development, it’s not strong suit. My journey in web development started with a deep curiosity about how things work, and I am always eager to learn the latest IT skills.", "I’ve had the opportunity to work in collaborative environments, and I truly enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I like to stay active, explore new technologies, take courses, and continuously learn important skills while maintaining a healthy life balance. My next goal is to perfect what I've learned so far and dive into the future of technology, particularly AI."]
   }
 ];
  
@@ -15,7 +15,7 @@ export const EXPERIENCES = [
     role: "Front End Developer",
     company: "Celebrae App.",
     description: ["A complete travel and entertainment for tourism app similar to Groupon. Project built with Next.js, Javascript, React, CSS, Bootstrap, TypeScript, Node, and Firebase.", "Project developed using the Agile Scrum ceremonies."],     
-    technologies: ["HTML", "CSS", "Javascript", "React.js", "Next.js", "Typescript", "Firebase", "Node.js", "Git", "Figma", "Agile/Scrum"],
+    technologies: ["HTML", "CSS", "Javascript", "React.js", "Next.js", "Typescript", "Node.js", "Git", "Firebase", "Figma", "Jira", "Agile/Scrum"],
   },
   // para agregar más experiencia en un futuro :D
   // {

@@ -19,10 +19,9 @@ const Navbar = () => {
       animate="visible"
     >
       <div className="container mx-auto px-8 py-6 flex items-center justify-between">
-        {/* Botón de descarga de CV */}
         <motion.div
           className="flex flex-shrink-0 items-center"
-          variants={heroDownloadCvDelay(2)}
+          variants={heroDownloadCvDelay(2.5)}
           initial="hidden"
           animate="visible"
         >
@@ -84,7 +83,7 @@ const Navbar = () => {
         </ul>
 
         <motion.div
-          className="hidden lg:flex items-center justify-center gap-4 text-2xl"
+          className="hidden lg:flex items-center justify-center gap-6 text-2xl"
           variants={heroSocialsDelay(2)}
           initial="hidden"
           animate="visible"

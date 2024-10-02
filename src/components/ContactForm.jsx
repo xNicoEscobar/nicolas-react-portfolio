@@ -144,18 +144,21 @@ const ContactForm = () => {
         </div>
 
         <div className="flex justify-center lg:justify-end">
-          <button
+          <motion.button
             type="submit"
             className={`rounded-lg bg-purple-900 px-6 py-2 text-sm font-semibold text-white shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-stone-400 ${
               isSending ? "cursor-not-allowed opacity-50" : ""
             }`}
             disabled={isSending}
+            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            transition={{ duration: 1 }}
           >
             <div className="flex items-center justify-center gap-2">
               {isSending ? "Sending..." : "Send"}
               <FiSend />
             </div>
-          </button>
+          </motion.button>
         </div>
       </form>
     </div>
