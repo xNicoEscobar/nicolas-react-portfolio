@@ -1,14 +1,21 @@
-export const HERO_CONTENT = `I am a passionate front end developer with a knack for crafting robust and scalable web applications. With 5 years of hands-on experience, I have honed my skills in front-end technologies like React and Next.js. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
+export const HERO_CONTENT = `I am a passionate front-end developer with a knack for building scalable web applications. With 1 year of hands-on experience, I have honed my skills in front-end technologies like JavaScript, React, Next.js, and CSS. My goal is to leverage this experience to continue learning and create innovative solutions that drive both business and personal growth, delivering modern and exceptional user experiences.`;
 
-export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
+export const ABOUT_TEXT = [
+  {
+    paragraph: ["I am a dedicated and versatile front-end developer with a passion for creating efficient, modern, and user-friendly web applications. With 1 year of professional experience, I have worked with a variety of technologies, including JavaScript, CSS, Bootstrap, Tailwind, React, Next.js, and Node.js. While I have some experience with backend development, it’s not my primary focus. My journey in web development began with a deep curiosity about how things work, and I am always eager to learn the latest IT skills.", "I’ve had the opportunity to work in collaborative environments, and I truly enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I like to stay active, explore new technologies, take courses, and continuously learn important skills all while maintaining a healthy balance in life. My next goal is to perfect what I've learned so far and I want to dive into AI world."]
+  }
+];
+ 
+
+
 
 export const EXPERIENCES = [
   {
     year: "June 2023 - June 2024",
     role: "Front End Developer",
     company: "Celebrae App.",
-    description: ["A complete Interactive mobile-web application development using tools such as HTML, CSS, JavaScript, React JS and Redux, all strongly typed with TypeScript", "Complete login user interface adding strong validations in all fields. Consumed and managed user data from firebase","Teamwork with Agile methodology through Scrum ceremonies.", "Use of task board with estimates based on Fibonacci scale."," Ordered way of working through a Branch system via GitHub.",],     
-    technologies: ["HTML", "CSS", "Javascript", "React.js", "Next.js", "Typescript", "Firebase"],
+    description: ["A complete travel and entertainment for tourism app similar to Groupon. Project built with Next.js, Javascript, React, CSS, Bootstrap, TypeScript, Node, and Firebase.", "Project developed using the Agile Scrum ceremonies."],     
+    technologies: ["HTML", "CSS", "Javascript", "React.js", "Next.js", "Typescript", "Firebase", "Node.js", "Git", "Figma", "Agile/Scrum"],
   },
   // para agregar más experiencia en un futuro :D
   // {
@@ -97,10 +104,3 @@ export const heroSocialsDelay = (delay) => ({
     transition: { duration: 0.5, delay: delay },
   },
 });
-
-
-export const CONTACT = {
-  address: "767 Fifth Avenue, New York, NY 10153 ",
-  phoneNo: "+12 4555 666 00 ",
-  email: "me@example.com",
-};

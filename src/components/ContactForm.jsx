@@ -91,7 +91,7 @@ const ContactForm = () => {
               transition={{ duration: 1 }}
             />
             {errors.name && (
-              <p className="text-sm text-rose-600 mt-2">{errors.name}</p>
+              <p className="text-sm text-stone-200 text-center  mt-2">{errors.name}</p>
             )}
           </div>
           <div className="w-full">
@@ -108,7 +108,7 @@ const ContactForm = () => {
               transition={{ duration: 0.75 }}
             />
             {errors.email && (
-              <p className="text-sm text-rose-600 mt-2">{errors.email}</p>
+              <p className="text-sm text-stone-200 text-center mt-2">{errors.email}</p>
             )}
           </div>
         </motion.div>
@@ -127,7 +127,7 @@ const ContactForm = () => {
             transition={{ duration: 1.25 }}
           />
           {errors.message && (
-            <p className="text-sm text-rose-600 mt-2">{errors.message}</p>
+            <p className="text-sm text-stone-200 text-center  mt-2">{errors.message}</p>
           )}
         </div>
 
