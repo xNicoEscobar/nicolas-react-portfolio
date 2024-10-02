@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 import { FiSend } from "react-icons/fi";
 
 const ContactForm = () => {
@@ -51,12 +51,12 @@ const ContactForm = () => {
           "ZDwb9Qxjt6yK5pvKZ"
         )
         .then((response) => {
-          Toaster.success("Message sent successfully");
+          toast.success("Message sent successfully");
           setFormData({ name: "", email: "", message: "" });
         })
         .catch((error) => {
           console.log("FAILED...", error);
-          Toaster.error("Failed to send message. Please try again.");
+          toast.error("Failed to send message. Please try again.");
         })
         .finally(() => {
           setIsSending(false);
@@ -66,7 +66,13 @@ const ContactForm = () => {
 
   return (
     <div className="pb-5 p-4 lg:w-2/4 mx-auto" id="contact">
-      <Toaster />
+      <Toaster
+        toastOptions={{
+          style: {
+            border: "2px solid purple",
+          },
+        }}
+      />
       <motion.h2
         className="my-20 text-center text-4xl"
         whileInView={{ opacity: 1, y: 0 }}
@@ -85,13 +91,15 @@ const ContactForm = () => {
               value={formData.name}
               placeholder="Name"
               onChange={handleChange}
-              className="w-full appearance-none rounded-lg border border-purple-900 bg-stone-900 px-3 py-2 text-sm text-stone-200 shadow-sm focus:border-purple-400 focus:outline-none"
+              className="w-full appearance-none rounded-lg border border-purple-900 bg-neutral-900 bg-opacity-90 px-3 py-2 text-sm text-stone-200 shadow-sm focus:border-purple-400 focus:outline-none"
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: -100 }}
               transition={{ duration: 1 }}
             />
             {errors.name && (
-              <p className="text-sm text-stone-200 text-center  mt-2">{errors.name}</p>
+              <p className="text-sm text-stone-200 text-center  mt-2">
+                {errors.name}
+              </p>
             )}
           </div>
           <div className="w-full">
@@ -102,13 +110,15 @@ const ContactForm = () => {
               value={formData.email}
               placeholder="Email"
               onChange={handleChange}
-              className="w-full appearance-none rounded-lg border border-purple-900 bg-stone-900 px-3 py-2 text-sm text-stone-200 shadow-sm focus:border-purple-400 focus:outline-none"
+              className="w-full appearance-none rounded-lg border border-purple-900 bg-neutral-900 bg-opacity-90 px-3 py-2 text-sm text-stone-200 shadow-sm focus:border-purple-400 focus:outline-none"
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: -50 }}
               transition={{ duration: 0.75 }}
             />
             {errors.email && (
-              <p className="text-sm text-stone-200 text-center mt-2">{errors.email}</p>
+              <p className="text-sm text-stone-200 text-center mt-2">
+                {errors.email}
+              </p>
             )}
           </div>
         </motion.div>
@@ -120,14 +130,16 @@ const ContactForm = () => {
             value={formData.message}
             placeholder="Message"
             onChange={handleChange}
-            className="w-full appearance-none rounded-lg border border-purple-900 bg-stone-900 px-3 py-2 text-sm text-stone-200 shadow-sm focus:border-purple-400 focus:outline-none"
+            className="w-full appearance-none rounded-lg border border-purple-900 bg-neutral-900 bg-opacity-90 px-3 py-2 text-sm text-stone-200 shadow-sm focus:border-purple-400 focus:outline-none"
             rows="6"
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: -100 }}
             transition={{ duration: 1.25 }}
           />
           {errors.message && (
-            <p className="text-sm text-stone-200 text-center  mt-2">{errors.message}</p>
+            <p className="text-sm text-stone-200 text-center  mt-2">
+              {errors.message}
+            </p>
           )}
         </div>
 
