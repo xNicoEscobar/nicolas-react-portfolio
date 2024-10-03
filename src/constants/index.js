@@ -1,4 +1,4 @@
-export const HERO_CONTENT = `I am a passionate front-end developer who can build scalable web applications. With 1 year of hands-on experience, I have honed my skills in front-end technologies like JavaScript, React, Next.js, and CSS. My goal is to leverage this experience to continue learning and create innovative solutions that drive both business and personal growth, delivering modern and exceptional user experiences.`;
+export const HERO_CONTENT = `I am a passionate front-end developer who can design and build scalable web applications. With 1 year of hands-on experience, I have honed my skills in front-end technologies like JavaScript, React, Next.js, and CSS. My goal is to leverage this experience to continue learning and create innovative solutions that drive both business and personal growth, delivering modern and exceptional user experiences.`;
 
 export const ABOUT_TEXT = [
   {
