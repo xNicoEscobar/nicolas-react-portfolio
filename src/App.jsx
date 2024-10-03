@@ -14,9 +14,9 @@ function App() {
       <div className="fixed top-0 -z-10 h-full w-full">
         <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
       </div>
-      <div className="container mx-auto px-8 pt-20">
+      <div className="container mx-auto px-8 py-40">
         <Navbar />
-        <section id="hero" className="scroll-mt-20">
+        <section id="hero" className="scroll-mt-40">
           <Hero />
         </section>
         <section id="about" className="scroll-mt-40">
@@ -31,7 +31,7 @@ function App() {
         <section id="education" className="scroll-mt-40">
           <Education />
         </section>
-        <section id="contact" className="scroll-mt-20">
+        <section id="contact" className="scroll-py-20">
           <ContactForm />
         </section>
       </div>
