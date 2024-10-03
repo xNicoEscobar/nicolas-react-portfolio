@@ -91,7 +91,7 @@ const ContactForm = () => {
               value={formData.name}
               placeholder="Name"
               onChange={handleChange}
-              className="w-full appearance-none rounded-lg border border-purple-950 bg-neutral-900 bg-opacity-90 px-3 py-2 text-md text-stone-200 shadow-sm focus:border-purple-400 focus:outline-none"
+              className="w-full appearance-none rounded-lg border border-violet-900 bg-neutral-900 bg-opacity-90 px-3 py-2 text-md text-stone-200 shadow-sm focus:border-violet-400 focus:outline-none"
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: -100 }}
               transition={{ duration: 1 }}
@@ -110,7 +110,7 @@ const ContactForm = () => {
               value={formData.email}
               placeholder="Email"
               onChange={handleChange}
-              className="w-full appearance-none rounded-lg border border-purple-950 bg-neutral-900 bg-opacity-90 px-3 py-2 text-md text-stone-200 shadow-sm focus:border-purple-400 focus:outline-none"
+              className="w-full appearance-none rounded-lg border border-violet-900 bg-neutral-900 bg-opacity-90 px-3 py-2 text-md text-stone-200 shadow-sm focus:border-violet-400 focus:outline-none"
               whileInView={{ opacity: 1, y: 0 }}
               initial={{ opacity: 0, y: -50 }}
               transition={{ duration: 0.75 }}
@@ -130,7 +130,7 @@ const ContactForm = () => {
             value={formData.message}
             placeholder="Message"
             onChange={handleChange}
-            className="w-full appearance-none rounded-lg border border-purple-950 bg-neutral-900 bg-opacity-90 px-3 py-2 text-md text-stone-200 shadow-sm focus:border-purple-400 focus:outline-none"
+            className="w-full appearance-none rounded-lg border border-violet-900 bg-neutral-900 bg-opacity-90 px-3 py-2 text-md text-stone-200 shadow-sm focus:border-violet-400 focus:outline-none"
             rows="6"
             whileInView={{ opacity: 1, x: 0 }}
             initial={{ opacity: 0, x: -100 }}
@@ -146,7 +146,7 @@ const ContactForm = () => {
         <div className="flex justify-center lg:justify-end">
           <motion.button
             type="submit"
-            className={`rounded-lg bg-purple-950 px-6 py-2 text-sm font-semibold text-white shadow-md hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-stone-400 ${
+            className={`rounded-lg bg-violet-900 px-6 py-2 text-sm font-semibold text-white shadow-md hover:bg-violet-800 focus:outline-none focus:ring-2 focus:ring-stone-400 ${
               isSending ? "cursor-not-allowed opacity-50" : ""
             }`}
             disabled={isSending}
