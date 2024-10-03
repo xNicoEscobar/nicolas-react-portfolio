@@ -86,7 +86,7 @@ const Navbar = () => {
         <div className="lg:hidden">
           <motion.button
             onClick={toggleMenu}
-            className="text-purple-700 text-3xl focus:outline-none"
+            className="text-purple-900 text-3xl focus:outline-none"
             whileTap={{ scale: 0.9 }}
             animate={{ rotate: isOpen ? 90 : 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
