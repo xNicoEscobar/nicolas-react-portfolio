@@ -22,7 +22,7 @@ function App() {
         <section id="about" className="scroll-mt-40">
           <About />
         </section>
-        <section id="technologies" className="scroll-mt-40">
+        <section id="skills" className="scroll-mt-40">
           <Technologies />
         </section>
         <section id="experience" className="scroll-mt-40">
@@ -31,7 +31,7 @@ function App() {
         <section id="education" className="scroll-mt-40">
           <Education />
         </section>
-        <section id="contact">
+        <section id="contact" className="scroll-mt-20">
           <ContactForm />
         </section>
       </div>

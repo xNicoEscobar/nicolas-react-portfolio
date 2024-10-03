@@ -1,15 +1,64 @@
 import { FaLinkedin, FaGithub, FaWhatsapp, FaDownload } from "react-icons/fa";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { heroDownloadCvDelay, heroSocialsDelay } from "../constants";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  const handleScroll = () => {
+    const sections = [
+      "hero",
+      "about",
+      "skills",
+      "experience",
+      "education",
+      "contact",
+    ];
+    const scrollPosition = window.scrollY;
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) {
+        const offsetTop = element.offsetTop - 100;
+        const offsetBottom = offsetTop + element.offsetHeight;
+        if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+          setActiveSection(section);
+        }
+      }
+    });
+  };
+
+  const handleMenuClick = (section) => {
+    setActiveSection(section);
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <motion.nav
@@ -35,51 +84,42 @@ const Navbar = () => {
         </motion.div>
 
         <div className="lg:hidden">
-          <button
+          <motion.button
             onClick={toggleMenu}
             className="text-white text-3xl focus:outline-none"
+            whileTap={{ scale: 0.9 }}
+            animate={{ rotate: isOpen ? 90 : 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             {isOpen ? <FiX /> : <FiMenu />}
-          </button>
+          </motion.button>
         </div>
 
         <ul className="hidden lg:flex space-x-8 text-neutral-300">
-          <li>
-            <a href="#hero" className="hover:text-white transition-colors">
-              Hero
-            </a>
-          </li>
-          <li>
-            <a href="#about" className="hover:text-white transition-colors">
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="#technologies"
-              className="hover:text-white transition-colors"
-            >
-              Skills
-            </a>
-          </li>
-          <li>
-            <a
-              href="#experience"
-              className="hover:text-white transition-colors"
-            >
-              Experience
-            </a>
-          </li>
-          <li>
-            <a href="#education" className="hover:text-white transition-colors">
-              Education
-            </a>
-          </li>
-          <li>
-            <a href="#contact" className="hover:text-white transition-colors">
-              Contact
-            </a>
-          </li>
+          {[
+            "hero",
+            "about",
+            "skills",
+            "experience",
+            "education",
+            "contact",
+          ].map((section) => (
+            <li key={section}>
+              <a
+                href={`#${section}`}
+                className={`hover:text-white transition-colors relative ${
+                  activeSection === section ? "text-white" : ""
+                }`}
+                onClick={() => handleMenuClick(section)}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+
+                {activeSection === section && (
+                  <span className="absolute left-0 right-0 bottom-[-2px] h-[2px] bg-purple-500" />
+                )}
+              </a>
+            </li>
+          ))}
         </ul>
 
         <motion.div
@@ -116,63 +156,42 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="lg:hidden bg-neutral-900 w-full py-5 px-8 ">
+        <motion.div
+          ref={menuRef}
+          className="lg:hidden bg-neutral-990/90 w-full py-5 px-8"
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
           <ul className="space-y-4 text-neutral-300">
-            <li>
-              <a
-                href="#hero"
-                className="block hover:text-white transition-colors"
-                onClick={toggleMenu}
+            {[
+              "hero",
+              "about",
+              "skills",
+              "experience",
+              "education",
+              "contact",
+            ].map((section, index) => (
+              <li
+                key={index}
+                className="relative flex justify-center border-b border-neutral-700"
               >
-                Hero
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="block hover:text-white transition-colors"
-                onClick={toggleMenu}
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#technologies"
-                className="block hover:text-white transition-colors"
-                onClick={toggleMenu}
-              >
-                Skills
-              </a>
-            </li>
-            <li>
-              <a
-                href="#experience"
-                className="block hover:text-white transition-colors"
-                onClick={toggleMenu}
-              >
-                Experience
-              </a>
-            </li>
-            <li>
-              <a
-                href="#education"
-                className="block hover:text-white transition-colors"
-                onClick={toggleMenu}
-              >
-                Education
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="block hover:text-white transition-colors"
-                onClick={toggleMenu}
-              >
-                Contact
-              </a>
-            </li>
+                <a
+                  href={`#${section}`}
+                  className={`block w-1/2 mx-auto text-center hover:text-white transition-colors ${
+                    activeSection === section
+                      ? "text-white border-b-2 border-purple-500"
+                      : ""
+                  }`}
+                  onClick={() => handleMenuClick(section)}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </a>
+              </li>
+            ))}
           </ul>
+
           <div className="flex items-center justify-center gap-4 mt-6 text-2xl">
             <a
               href="https://www.linkedin.com/in/escobar-nicolas"
@@ -199,7 +218,7 @@ const Navbar = () => {
               <FaWhatsapp className="text-4xl" />
             </a>
           </div>
-        </div>
+        </motion.div>
       )}
     </motion.nav>
   );
