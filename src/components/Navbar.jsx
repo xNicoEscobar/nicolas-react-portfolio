@@ -62,7 +62,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 w-full bg-black/80 z-50"
+      className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-sm z-50"
       variants={heroDownloadCvDelay(2)}
       initial="hidden"
       animate="visible"
@@ -86,7 +86,7 @@ const Navbar = () => {
         <div className="lg:hidden">
           <motion.button
             onClick={toggleMenu}
-            className="text-violet-900 text-3xl focus:outline-none"
+            className="text-violet-800 text-3xl focus:outline-none"
             whileTap={{ scale: 0.9 }}
             animate={{ rotate: isOpen ? 90 : 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
