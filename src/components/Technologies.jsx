@@ -9,7 +9,7 @@ import { iconVariants } from "../constants";
 
 const Technologies = () => {
   return (
-    <div className="border-b border-violet-900 pb-24">
+    <div className="border-b border-violet-800 pb-24">
       <motion.h2
         className="my-20 text-center text-4xl"
         whileInView={{ opacity: 1, y: 0 }}

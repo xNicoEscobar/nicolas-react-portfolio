@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div className="border-b border-violet-900 pb-4 lg:mb-35 sm:mt-20">
+    <div className="border-b border-violet-800 pb-4 lg:mb-35 sm:mt-20">
       <div className="flex flex-wrap">
         <div className="w-full lg:w-1/2">
           <div className="flex flex-col items-center lg:items-center">
@@ -18,7 +18,7 @@ const Hero = () => {
               Escobar Nicolas
             </motion.h1>
             <motion.span
-              className="bg-gradient-to-r from-violet-400 to-violet-900 bg-clip-text text-3xl tracking-tight text-transparent"
+              className="bg-gradient-to-r from-violet-400 to-violet-700 bg-clip-text text-3xl tracking-tight text-transparent"
               variants={heroTransitionDelay(0.5)}
               initial="hidden"
               animate="visible"

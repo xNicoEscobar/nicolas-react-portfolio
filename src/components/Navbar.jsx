@@ -77,7 +77,7 @@ const Navbar = () => {
           <a
             href="/CV_Escobar_Nicolas.pdf"
             download
-            className="bg-violet-900 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-violet-700 transition duration-300 flex items-center gap-2"
+            className="bg-violet-800 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-violet-600 transition duration-300 flex items-center gap-2"
           >
             <FaDownload className="text-white" /> Download CV
           </a>
@@ -181,7 +181,7 @@ const Navbar = () => {
                   href={`#${section}`}
                   className={`block w-1/2 mx-auto text-center hover:text-white transition-colors ${
                     activeSection === section
-                      ? "text-white border-b-2 border-violet-900"
+                      ? "text-white border-b-2 border-violet-800"
                       : ""
                   }`}
                   onClick={() => handleMenuClick(section)}
