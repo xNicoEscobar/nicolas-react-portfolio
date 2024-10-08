@@ -7,15 +7,35 @@ import { FiMenu, FiX } from "react-icons/fi";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [cvMenuOpen, setCvMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const cvMenuRef = useRef(null);
+  const cvButtonRef = useRef(null); // Ref para el botón de descarga de CV
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    if (!isOpen) {
+      setCvMenuOpen(false); // Cierra el menú de CV si se abre el menú de hamburguesa
+    }
+  };
+
+  const toggleCvMenu = () => {
+    setCvMenuOpen(!cvMenuOpen);
+    if (!cvMenuOpen) {
+      setIsOpen(false); // Cierra el menú de hamburguesa si se abre el menú de CV
+    }
   };
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setIsOpen(false);
+    }
+    if (
+      cvMenuRef.current &&
+      !cvMenuRef.current.contains(event.target) &&
+      !cvButtonRef.current.contains(event.target)
+    ) {
+      setCvMenuOpen(false);
     }
   };
 
@@ -62,25 +82,57 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-sm z-50"
+      className="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-sm z-50"
       variants={heroDownloadCvDelay(2)}
       initial="hidden"
       animate="visible"
     >
       <div className="container mx-auto px-8 py-6 flex items-center justify-between">
         <motion.div
-          className="flex flex-shrink-0 items-center"
+          className="relative flex flex-shrink-0 items-center"
           variants={heroDownloadCvDelay(2.5)}
           initial="hidden"
           animate="visible"
         >
-          <a
-            href="/CV_Escobar_Nicolas.pdf"
-            download
+          <button
+            ref={cvButtonRef}
+            onClick={toggleCvMenu}
             className="bg-violet-800 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-violet-600 transition duration-300 flex items-center gap-2"
           >
             <FaDownload className="text-white" /> Download CV
-          </a>
+          </button>
+
+          {cvMenuOpen && (
+            <motion.div
+              ref={cvMenuRef}
+              className="absolute top-12 left-0 bg-black/90 text-white rounded-lg shadow-md"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ul className="flex flex-col">
+                <li>
+                  <a
+                    href="/CV_Escobar_Nicolas_EN.pdf"
+                    download
+                    className="block px-4 py-2 hover:bg-gradient-to-b hover:from-black/80 hover:to-violet-800 rounded-lg hover:rounded-none"
+                  >
+                    English Version
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/CV_Escobar_Nicolas.pdf"
+                    download
+                    className="block px-4 py-2 hover:bg-gradient-to-b hover:from-black/80 hover:to-violet-800 rounded-lg"
+                  >
+                    Spanish Version
+                  </a>
+                </li>
+              </ul>
+            </motion.div>
+          )}
         </motion.div>
 
         <div className="lg:hidden">
@@ -95,7 +147,7 @@ const Navbar = () => {
           </motion.button>
         </div>
 
-        <ul className="hidden lg:flex space-x-8 text-neutral-300">
+        <ul className="hidden lg:flex space-x-8 text-neutral-400">
           {[
             "hero",
             "about",
@@ -113,9 +165,8 @@ const Navbar = () => {
                 onClick={() => handleMenuClick(section)}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
-
                 {activeSection === section && (
-                  <span className="absolute left-0 right-0 bottom-[-2px] h-[2px] bg-purple-500" />
+                  <span className="absolute left-0 right-0 bottom-[-2px] h-[2px] bg-purple-600" />
                 )}
               </a>
             </li>
@@ -164,7 +215,7 @@ const Navbar = () => {
           exit={{ x: "100%" }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <ul className="space-y-4 text-neutral-300">
+          <ul className="space-y-4 text-neutral-400">
             {[
               "hero",
               "about",
@@ -179,9 +230,9 @@ const Navbar = () => {
               >
                 <a
                   href={`#${section}`}
-                  className={`block w-1/2 mx-auto text-center hover:text-white transition-colors ${
+                  className={`block w-1/2 mx-auto text-center hover:text-white border-violet-800 transition-colors ${
                     activeSection === section
-                      ? "text-white border-b-2 border-violet-800"
+                      ? "text-white border-b-2 border-violet-600"
                       : ""
                   }`}
                   onClick={() => handleMenuClick(section)}
