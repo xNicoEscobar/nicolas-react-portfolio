@@ -31,7 +31,7 @@ const Footer = () => {
             <FaWhatsapp className="text-3xl" />
           </a>
         </div>
-        <p className="text-neutral-500 text-sm mt-4">© 2024 Escobar Nicolas. All rights reserved.</p>
+        <p className="text-neutral-500 text-sm mt-4">© 2025 Escobar Nicolas. All rights reserved.</p>
       </div>
     </footer>
   );
