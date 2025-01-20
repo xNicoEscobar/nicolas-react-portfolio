@@ -32,11 +32,10 @@ const Experience = () => {
             >
               <h6 className="mb-2 font-semibold">
                 {experience.role} -{" "}
-                <a href="https://www.celebrae.com/">
-
-                <span className="text-sm text-purple-400">
-                  {experience.company}
-                </span>
+                <a href="https://www.celebrae.com/" target="_blank">
+                  <span className="text-sm text-purple-400">
+                    {experience.company}
+                  </span>
                 </a>
               </h6>
               {experience.description.map((desc, descIndex) => (
